@@ -35,7 +35,9 @@
 ## Backend
 
 -Navigate to the backend folder:
+
 -cd review
+
 -Install dependencies: npm install
 
 ---
@@ -46,7 +48,9 @@
 -Create the MySQL database and tables using the provided SQL schema (if available), or run
 
 -Start the backend server:
+
 -node server.js
+
 -By default, the backend listens on http://localhost:5000.
 
 ---
@@ -54,9 +58,13 @@
 ## Frontend
 
 -Open a new terminal window/tab and navigate to the frontend folder:
+
 -cd rating
+
 -Install dependencies
+
 -Start the React development server: npm start
+
 -The frontend will open automatically in your browser at http://localhost:3000.
 
 ---
