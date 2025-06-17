@@ -1,4 +1,6 @@
-# Ratings & Reviews Web Application
+# Ratings & Reviews Web Application 
+-Includes documentation on how to set up, run the application, and test.
+-Drive Link for the video of responsive site and sql - [https://drive.google.com/drive/folders/1TNDh1OXAsa3jX2p9wtZvf7BDA-OWpkoF?usp=sharing]
 
 ---
 
