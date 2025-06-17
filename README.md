@@ -14,8 +14,8 @@
 
 ## Project Structure
 
-- **client/** — React frontend code
-- **server/** — Express backend API
+- **rating/** — React frontend code
+- **review/** — Express backend API
 - **database/** — MySQL database schema and setup
 
 ---
@@ -29,43 +29,37 @@
 - Git (for version control)
 
 ---
-##Backend Setup
 
-Navigate to the backend folder:
-cd review
-Install dependencies: npm install
+## Backend
 
-##Configure your MySQL database connection in server.js or appropriate config file:
+-Navigate to the backend folder:
+-cd review
+-Install dependencies: npm install
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'your_mysql_username',
-  password: 'your_mysql_password',
-  database: 'ratings_reviews_db'
-});
-Create the MySQL database and tables using the provided SQL schema (if available), or run:
-CREATE DATABASE ratings_reviews_db;
-USE ratings_reviews_db;
-CREATE TABLE reviews (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  product_id INT NOT NULL,
-  rating INT,
-  review TEXT,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+---
 
-Start the backend server:
-node server.js
-By default, the backend listens on http://localhost:5000.
+## Database (MySQL)
+-Configure your MySQL database connection in server.js or appropriate config file
 
-##Frontend Setup
-Open a new terminal window/tab and navigate to the frontend folder:
-cd rating
-Install dependencies
-Start the React development server: npm start
-The frontend will open automatically in your browser at http://localhost:3000.
+-Create the MySQL database and tables using the provided SQL schema (if available), or run
 
-##Testing the Application
+-Start the backend server:
+-node server.js
+-By default, the backend listens on http://localhost:5000.
+
+---
+
+## Frontend
+
+-Open a new terminal window/tab and navigate to the frontend folder:
+-cd rating
+-Install dependencies
+-Start the React development server: npm start
+-The frontend will open automatically in your browser at http://localhost:3000.
+
+---
+
+## Testing the Application
 ✅Use the React UI to submit ratings and reviews for products.
 
 ✅Click "Show Reviews" button to view stored reviews.
@@ -76,18 +70,18 @@ The frontend will open automatically in your browser at http://localhost:3000.
 
 ✅The UI animations and transitions should respond on hover and click.
 
-
+---
 
 ## ✅ **Frontend (React)** dependencies
 
-These are typically installed via `npm install` inside your `client/` folder:
+These are typically installed via `npm install` inside your `rating/` folder:
 
 | Package             | Purpose                          |
 | ------------------- | -------------------------------- |
 | `react`             | Core React library               |
 | `react-dom`         | DOM bindings for React           |
 | `styled-components` | Styling UI components            |
-| `axios`             | HTTP client to make API requests |
+| `axios`             | HTTP rating to make API requests |
 | `framer-motion`     | Animations and transitions       |
 | `react-icons`       | Icon library (used for `FaStar`) |
 
@@ -97,7 +91,7 @@ These are typically installed via `npm install` inside your `client/` folder:
 
 ## ✅ **Backend (Node.js + Express)** dependencies
 
-Installed via `npm install` inside your `server/` folder:
+Installed via `npm install` inside your `review/` folder:
 
 | Package           | Purpose                                          |
 | ----------------- | ------------------------------------------------ |
