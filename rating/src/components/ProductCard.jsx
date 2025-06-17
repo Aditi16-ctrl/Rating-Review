@@ -9,6 +9,8 @@ const Card = styled(motion.div)`
   padding: 1.2rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
   flex-direction: column;
   align-items: center;
   color: #fff;
@@ -91,6 +93,13 @@ const Tag = styled.span`
   cursor: pointer;
   margin: 0.2rem;
 `;
+const CenteredButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+  width: 100%;
+`;
+
 
 const ProductCard = ({ product }) => {
   const [rating, setRating] = useState(0);
@@ -238,42 +247,45 @@ const ProductCard = ({ product }) => {
       )}
 
       {/* Show / Hide Reviews Button + Reviews Section */}
-      <div style={{ marginTop: '1.2rem', width: '100%' }}>
-        {!showReviews ? (
-          <SubmitBtn
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setShowReviews(true)}
-          >
-            Show Reviews ({reviews.length})
-          </SubmitBtn>
-        ) : (
-          <>
-            <SubmitBtn
-              style={{ marginBottom: '1rem', backgroundColor: '#ef4444', color: 'white' }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setShowReviews(false)}
-            >
-              Hide Reviews
-            </SubmitBtn>
+{!showReviews ? (
+  <CenteredButtonWrapper>
+    <SubmitBtn
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={() => setShowReviews(true)}
+    >
+      Show Reviews ({reviews.length})
+    </SubmitBtn>
+  </CenteredButtonWrapper>
+) : (
+  <div style={{ marginTop: '1.2rem', width: '100%' }}>
+    <CenteredButtonWrapper>
+      <SubmitBtn
+        style={{ backgroundColor: '#ef4444', color: 'white' }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => setShowReviews(false)}
+      >
+        Hide Reviews
+      </SubmitBtn>
+    </CenteredButtonWrapper>
 
-            {filteredReviews.length === 0 ? (
-              <p>No reviews yet.</p>
-            ) : (
-              filteredReviews.map((r) => (
-                <ReviewBox key={r.id}>
-                  <strong>Rating:</strong> {'★'.repeat(r.rating || 0)} ({r.rating || 'N/A'})<br />
-                  <strong>Comment:</strong> {r.review || 'No comment'}<br />
-                  <small style={{ color: '#94a3b8' }}>
-                    {r.created_at ? new Date(r.created_at).toLocaleDateString() : ''}
-                  </small>
-                </ReviewBox>
-              ))
-            )}
-          </>
-        )}
-      </div>
+    {filteredReviews.length === 0 ? (
+      <p style={{ textAlign: 'center', marginTop: '0.8rem' }}>No reviews yet.</p>
+    ) : (
+      filteredReviews.map((r) => (
+        <ReviewBox key={r.id}>
+          <strong>Rating:</strong> {'★'.repeat(r.rating || 0)} ({r.rating || 'N/A'})<br />
+          <strong>Comment:</strong> {r.review || 'No comment'}<br />
+          <small style={{ color: '#94a3b8' }}>
+            {r.created_at ? new Date(r.created_at).toLocaleDateString() : ''}
+          </small>
+        </ReviewBox>
+      ))
+    )}
+  </div>
+)}
+
     </Card>
   );
 };
